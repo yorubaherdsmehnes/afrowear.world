@@ -18,12 +18,15 @@ export interface Database {
     Tables: {
       waitlist: {
         Row: {
-          id: string;                    // uuid
-          email: string;                 // text, unique
-          created_at: string;            // timestamptz
-          referral_code: string;         // text, unique, auto-generated
-          referred_by: string | null;    // text, references waitlist(referral_code)
+          id: string;
+          email: string;
+          created_at: string;
+          referral_code: string;
+          referred_by: string | null;
           status: "pending" | "founding_member" | "confirmed";
+          first_name: string | null; // ← add
+          phone_number: string | null; // ← add
+          is_vip: boolean; // ← add
         };
         Insert: {
           id?: string;
@@ -32,6 +35,9 @@ export interface Database {
           referral_code?: string;
           referred_by?: string | null;
           status?: "pending" | "founding_member" | "confirmed";
+          first_name?: string | null; // ← add
+          phone_number?: string | null; // ← add
+          is_vip?: boolean; // ← add
         };
         Update: {
           id?: string;
@@ -40,6 +46,9 @@ export interface Database {
           referral_code?: string;
           referred_by?: string | null;
           status?: "pending" | "founding_member" | "confirmed";
+          first_name?: string | null; // ← add
+          phone_number?: string | null; // ← add
+          is_vip?: boolean; // ← add
         };
       };
     };
