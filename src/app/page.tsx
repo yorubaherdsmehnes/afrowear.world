@@ -1,65 +1,96 @@
-import Image from "next/image";
+import TopBanner from "@/components/TopBanner";
+import HeroCover from "@/components/HeroCover";
+import WaitlistForm from "@/components/WaitlistForm";
+import EditorsNote from "@/components/EditorsNote";
+import FeatureArticle from "@/components/FeatureArticle";
+import Footer from "@/components/Footer";
+import { SITE_TAGLINE, SITE_DESCRIPTION, ISSUE_LABEL } from "@/lib/config";
 
+/**
+ * Root page — split-pane editorial layout.
+ *
+ * Desktop: two-column flex
+ *   Left  — sticky magazine cover (HeroCover), 50vw
+ *   Right — scrollable content column, 50vw
+ *
+ * Mobile: single column, stacked top-to-bottom
+ *   TopBanner → HeroCover (tall hero) → content → Footer
+ *
+ * The TopBanner sits outside the split layout so it spans full width.
+ */
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-aw-black flex flex-col">
+      {/* ── Full-width announcement bar ────────────────────────────────────── */}
+      <TopBanner />
+
+      {/* ── Split layout ───────────────────────────────────────────────────── */}
+      <div className="flex flex-col lg:flex-row flex-1">
+        {/* ── Left: Sticky cover ─────────────────────────────────────────── */}
+        {/* On desktop this takes exactly half the viewport width and stays   */}
+        {/* fixed while the right column scrolls past it.                     */}
+        <div className="lg:w-1/2 lg:flex-shrink-0">
+          <HeroCover />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        {/* ── Right: Scrollable content ──────────────────────────────────── */}
+        <main className="lg:w-1/2 flex flex-col" id="main-content">
+          {/* Hero copy + waitlist form */}
+          <section
+            className="flex flex-col justify-center px-8 md:px-12 lg:px-14 pt-14 pb-10 min-h-[60vh] lg:min-h-screen"
+            aria-labelledby="hero-headline"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            {/* 
+    THE SCALE WRAPPER: 
+    This locks the origin to the left and scales the entire block by 1.3x only on lg screens. 
+  */}
+            <div className="lg:scale-[1.3] lg:origin-left lg:w-[76.9%]">
+              {/* Issue badge */}
+              <p className="font-sans text-eyebrow tracking-[0.2em] uppercase text-aw-gold mb-6 inline-flex items-center gap-2">
+                <span
+                  className="inline-block h-1.5 w-1.5 rounded-full bg-aw-gold"
+                  aria-hidden="true"
+                />
+                {ISSUE_LABEL}
+              </p>
+
+              {/* Display headline */}
+              <h1
+                id="hero-headline"
+                className="font-serif text-display-xl text-aw-white leading-[1.05] tracking-tight mb-6"
+              >
+                Where the{" "}
+                <em className="italic text-aw-gold not-italic uppercase pl-1 pr-1 lg:pl-2 lg:pr-2">Afican Fashion</em>{" "}
+                Meets the World.
+              </h1>
+
+              {/* Standfirst */}
+              <p className="font-sans text-sm text-aw-muted leading-relaxed max-w-sm mb-10">
+                {SITE_DESCRIPTION}
+              </p>
+
+              {/* Email capture */}
+              <div className="max-w-sm">
+                <WaitlistForm />
+              </div>
+            </div>
+          </section>
+
+          {/* Editor's Note gold band */}
+          <EditorsNote />
+
+          {/* Feature article teaser */}
+          <section
+            className="px-8 md:px-12 lg:px-14 pt-4 pb-12"
+            aria-label="Feature preview"
           >
-            Documentation
-          </a>
-        </div>
-      </main>
+            <FeatureArticle />
+          </section>
+
+          {/* Footer */}
+          <Footer />
+        </main>
+      </div>
     </div>
   );
 }
