@@ -19,7 +19,7 @@ export const SOCIALS = [
   {
     name: "Instagram",
     href: "https://instagram.com/afrowear.world",
-    handle: "@afrowea.world",
+    handle: "@afrowear.world",
   },
   // {
   //   name: "X",
