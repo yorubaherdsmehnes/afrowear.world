@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { registerWaitlist, upgradeWaitlist } from "@/app/actions";
+import { registerWaitlist, upgradeWaitlist } from "@/app/actions/actions";
 
 type FormStep = "email" | "upgrade" | "success";
 

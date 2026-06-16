@@ -1,4 +1,5 @@
 import { SOCIALS, SITE_NAME } from "@/lib/config";
+import type { FC } from "react";
 
 // ── Minimal SVG social icons ──────────────────────────────────────────────────
 // Custom-drawn to match the sleek style of the magazine cover's icon row.
@@ -45,7 +46,7 @@ function PinterestIcon() {
   );
 }
 
-const SOCIAL_ICONS: Record<string, () => JSX.Element> = {
+const SOCIAL_ICONS: Record<string, FC>  = {
   Instagram: InstagramIcon,
   X: XIcon,
   TikTok: TikTokIcon,
