@@ -1,11 +1,4 @@
-/**
- * Auto-generate this file from your live Supabase schema by running:
- *   npm run db:types
- *
- * This is a hand-written baseline. Once your DB is live, replace it.
- */
-
-export type Json =
+﻿export type Json =
   | string
   | number
   | boolean
@@ -24,9 +17,9 @@ export interface Database {
           referral_code: string;
           referred_by: string | null;
           status: "pending" | "founding_member" | "confirmed";
-          first_name: string | null; // ← add
-          phone_number: string | null; // ← add
-          is_vip: boolean; // ← add
+          first_name: string | null;
+          phone_number: string | null;
+          is_vip: boolean;
         };
         Insert: {
           id?: string;
@@ -35,9 +28,9 @@ export interface Database {
           referral_code?: string;
           referred_by?: string | null;
           status?: "pending" | "founding_member" | "confirmed";
-          first_name?: string | null; // ← add
-          phone_number?: string | null; // ← add
-          is_vip?: boolean; // ← add
+          first_name?: string | null;
+          phone_number?: string | null;
+          is_vip?: boolean;
         };
         Update: {
           id?: string;
@@ -46,9 +39,9 @@ export interface Database {
           referral_code?: string;
           referred_by?: string | null;
           status?: "pending" | "founding_member" | "confirmed";
-          first_name?: string | null; // ← add
-          phone_number?: string | null; // ← add
-          is_vip?: boolean; // ← add
+          first_name?: string | null;
+          phone_number?: string | null;
+          is_vip?: boolean;
         };
       };
     };
@@ -58,6 +51,5 @@ export interface Database {
   };
 }
 
-// Convenience type aliases
 export type WaitlistRow = Database["public"]["Tables"]["waitlist"]["Row"];
 export type WaitlistInsert = Database["public"]["Tables"]["waitlist"]["Insert"];
