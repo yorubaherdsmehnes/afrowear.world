@@ -81,7 +81,7 @@ export default function FeatureArticle() {
           the case quietly: Afrocentric fashion isn't about looking back. It's
           about knowing exactly where you came from so you can move forward
           without apology.
-        </p>
+        </p> 
 
         {/* Credits */}
         <div className="pt-4 flex flex-wrap justify-center gap-x-6 gap-y-1 border-t border-aw-border">
@@ -89,7 +89,7 @@ export default function FeatureArticle() {
             key="crownBlackTee"
             href="https://www.arstkrt.com"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer" 
           >
             <span
               className="font-sans text-eyebrow tracking-widest text-aw-subtle uppercase pt-3 hover:text-aw-gold/70
