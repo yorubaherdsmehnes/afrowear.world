@@ -75,13 +75,13 @@ export default function FeatureArticle() {
 
         {/* Copy block 2 */}
         <p className="font-sans text-sm text-aw-muted leading-relaxed pt-2">
-          ARSTKRT reads across the chest in bold letterforms flanked by Native
-          African patterns — the ancient script that colonialism almost erased.
-          Worn here over slate trousers with clean white Air Forces, it makes
-          the case quietly: Afrocentric fashion isn't about looking back. It's
-          about knowing exactly where you came from so you can move forward
-          without apology.
-        </p> 
+          A close-up of a person from the lower face down to the upper legs,
+          standing against a light grey background with their hands in their
+          pockets. They are wearing a speckled light grey long-sleeve t-shirt
+          featuring a prominent black, stylized crown logo on the chest. They
+          have on a silver chain with a cross pendant, black-and-white
+          geometrically patterned pants, and a partially visible cream knit cap.
+        </p>
 
         {/* Credits */}
         <div className="pt-4 flex flex-wrap justify-center gap-x-6 gap-y-1 border-t border-aw-border">
@@ -89,7 +89,7 @@ export default function FeatureArticle() {
             key="crownBlackTee"
             href="https://www.arstkrt.com"
             target="_blank"
-            rel="noopener noreferrer" 
+            rel="noopener noreferrer"
           >
             <span
               className="font-sans text-eyebrow tracking-widest text-aw-subtle uppercase pt-3 hover:text-aw-gold/70
