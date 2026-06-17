@@ -1,7 +1,7 @@
 import Image from "next/image";
 import motif from "../../public/African pattern.png";
 import crownBlackTee from "../../public/Photoshoot Image 2.png";
-import arstkrtBlackTee from "../../public/Photoshoot image 3.png";
+import arstkrtWhiteTee from "../../public/Photoshoot image 3.png";
 
 export default function FeatureArticle() {
   return (
@@ -60,30 +60,28 @@ export default function FeatureArticle() {
         </p>
 
         {/* Image 2 */}
-        {/* <div
+        <div
           className="w-full relative overflow-hidden mt-8 mx-auto"
           style={{ aspectRatio: "3/4" }}
         >
           <Image
-            src={}
+            src={arstkrtWhiteTee}
             alt="Model in an ARSTKR mesh jersey with African script iconography, styled with slate trousers and white sneakers"
             fill
             className="object-cover object-top pl-10 pr-10"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-        </div> */}
-
+        </div>
 
         {/* Copy block 2 */}
-        {/* <p className="font-sans text-sm text-aw-muted leading-relaxed pt-2">
+        <p className="font-sans text-sm text-aw-muted leading-relaxed pt-2">
           ARSTKRT reads across the chest in bold letterforms flanked by Native
           African patterns — the ancient script that colonialism almost erased.
           Worn here over slate trousers with clean white Air Forces, it makes
           the case quietly: Afrocentric fashion isn't about looking back. It's
           about knowing exactly where you came from so you can move forward
           without apology.
-        </p> 
-         */}
+        </p>
 
         {/* Credits */}
         <div className="pt-4 flex flex-wrap justify-center gap-x-6 gap-y-1 border-t border-aw-border">
